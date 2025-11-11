@@ -11,6 +11,18 @@ var builder = WebApplication.CreateBuilder(args);
 builder.Services.AddDbContext<HabitTracker.Models.HabitContext>(options =>
     options.UseSqlite(builder.Configuration.GetConnectionString("DefaultConnection") ?? "Data Source=habits.db"));
 
+
+// Register CORS to allow requests from the React app (http://localhost:3000)
+builder.Services.AddCors(options =>
+{
+    options.AddDefaultPolicy(policy =>
+    {
+        policy.WithOrigins("http://localhost:3000") // React dev server origin
+              .AllowAnyHeader()
+              .AllowAnyMethod();
+    });
+});
+
 // Register controllers so the app can discover and use API controllers (e.g., HabitsController)
 builder.Services.AddControllers();
 
@@ -32,6 +44,11 @@ if (app.Environment.IsDevelopment())
     app.MapOpenApi();
 }
 
+
+
+// Enable CORS middleware before other middlewares that use it
+// This allows cross-origin requests from the React app
+app.UseCors();
 
 // Redirect HTTP requests to HTTPS
 app.UseHttpsRedirection();
