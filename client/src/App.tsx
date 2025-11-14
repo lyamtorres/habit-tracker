@@ -1,6 +1,8 @@
 import { useState, useEffect } from 'react'
 import './App.css'
-import { Button } from "@/components/ui/button"
+import Card from "@/components/card"
+import Container from "@/components/container"
+
 
 
 function App() {
@@ -27,24 +29,16 @@ function App() {
   }, []);
 
   return (
-    <>
-      <div style={{ marginTop: 32 }}>
-        <h2>Habits from API</h2>
-        {loading && <p>Loading...</p>}
-        {error && <p style={{ color: 'red' }}>{error}</p>}
-        {!loading && !error && (
-          <ul>
-            {habits.map((habit, idx) => (
-              <li key={habit.id || idx}>{habit.name || JSON.stringify(habit)}</li>
-            ))}
-          </ul>
-        )}
-      </div>
-      <div className="flex min-h-svh flex-col items-center justify-center">
-        <Button>Click me</Button>
-      </div>
-    </>
-  )
+    <Container>
+      {habits.map((habit, idx) => (
+        <Card
+          key={habit.id || idx}
+          title={habit.name || `Habit ${idx + 1}`}
+          description={habit.description || ''}
+        />
+      ))}
+    </Container>
+  );
 }
 
 export default App
