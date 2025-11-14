@@ -1,6 +1,8 @@
 
+
 import { useEffect, useState } from 'react';
 import './App.css';
+import Card from './componenents/Card';
 
 
 function App() {
@@ -114,9 +116,11 @@ function App() {
         {error && <p style={{ color: 'red' }}>Error: {error}</p>}
         <ul>
           {habits.map((habit) => (
-            <li key={habit.id}>
-              <strong>{habit.name}</strong> | Category: {habit.category} | Frequency: {habit.frequency} | Completed Days: {habit.completedDays}
-            </li>
+            <Card
+              key={habit.id}
+              habitName={habit.name}
+              completedDays={habit.completedDays}
+            />
           ))}
         </ul>
       </header>
