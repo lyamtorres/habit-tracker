@@ -18,23 +18,31 @@ type CardProps = {
   deleting?: boolean;
 };
 
+
+import CustomCheckbox from "./custom-checkbox";
+
 const Card: React.FC<CardProps> = ({ id, title, description, onDelete, deleting }) => {
   return (
-    <div className="flex w-full max-w-md flex-col gap-6">
-      <Item variant="outline">
-        <ItemContent>
-          <ItemTitle>{title}</ItemTitle>
-          <ItemDescription>
-            {description}
-          </ItemDescription>
-        </ItemContent>
-        <ItemActions>
-          <Button variant="outline" size="sm" onClick={() => onDelete(id)} disabled={deleting}>
-            {deleting ? 'Deleting...' : 'Action'}
-          </Button>
-        </ItemActions>
-      </Item>
-    </div>
+    <>
+      <div className="flex w-full max-w-md flex-col gap-6">
+        <Item variant="outline">
+          <ItemContent>
+            <div className="flex items-center gap-2">
+              <CustomCheckbox />
+              <ItemTitle>{title}</ItemTitle>
+            </div>
+            <ItemDescription>
+              {description}
+            </ItemDescription>
+          </ItemContent>
+          <ItemActions>
+            <Button variant="outline" size="sm" onClick={() => onDelete(id)} disabled={deleting}>
+              {deleting ? 'Deleting...' : 'Delete'}
+            </Button>
+          </ItemActions>
+        </Item>
+      </div>
+    </>
   );
 };
 

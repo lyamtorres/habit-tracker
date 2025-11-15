@@ -4,6 +4,7 @@ import Card from "@/components/card"
 import Container from "@/components/container"
 import { Input } from "@/components/ui/input"
 import { Button } from "@/components/ui/button"
+import { Checkbox } from "@/components/ui/checkbox"
 
 
 
@@ -78,21 +79,23 @@ function App() {
   };
 
   return (
-    <Container>
-      {habits.map((habit, idx) => (
-        <Card
-          key={habit.id || idx}
-          id={habit.id || idx}
-          title={habit.name || `Habit ${idx + 1}`}
-          description={habit.description || ''}
-          onDelete={handleDeleteHabit}
-          deleting={deletingId === (habit.id || idx)}
-        />
-      ))}
+    <>
+      <Container>
+        {habits.map((habit, idx) => (
+          <Card
+            key={habit.id || idx}
+            id={habit.id || idx}
+            title={habit.name || `Habit ${idx + 1}`}
+            description={habit.description || ''}
+            onDelete={handleDeleteHabit}
+            deleting={deletingId === (habit.id || idx)}
+          />
+        ))}
+      </Container>
       <div className="flex w-full mzax-w-sm items-center gap-2">
         <Input
           type="text"
-          placeholder="Do 30 min. of exercise"
+          placeholder="Drink water"
           value={newHabitName}
           onChange={e => setNewHabitName(e.target.value)}
           disabled={adding}
@@ -101,7 +104,7 @@ function App() {
           {adding ? 'Adding...' : 'Add'}
         </Button>
       </div>
-    </Container>
+    </>
   );
 }
 
