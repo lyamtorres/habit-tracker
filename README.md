@@ -2,7 +2,7 @@
 
 An API and client application designed to track personal habits and their progress. Examples of habits include “drink water,” “read for 20 minutes,” or “stretch your back.” Each habit stores a frequency and a counter for completed days.
 
-## Features
+## ✨ Features
 
 - Register new habits
 - Mark a habit as completed
@@ -13,7 +13,7 @@ An API and client application designed to track personal habits and their progre
 - Modern web client built with React + TypeScript + Vite
 - Simple database migrations with Entity Framework Core
 
-## Technologies
+## 🛠️ Technologies
 
 - ASP.NET Core (.NET 9)
 - Entity Framework Core
@@ -21,7 +21,7 @@ An API and client application designed to track personal habits and their progre
 - Vite
 - RESTful API design
 
-## Project Structure
+## 🗂️ Project Structure
 
 - `Controllers/` — ASP.NET Core API controllers
 - `Models/` — Entity and context models for habits
@@ -29,13 +29,13 @@ An API and client application designed to track personal habits and their progre
 - `client/` — Frontend React app (TypeScript, Vite)
 - `appsettings.json` — API configuration
 
-## Requirements
+## 📦 Requirements
 
 - .NET 9 SDK
 - Node.js (for client)
 - Any editor (VS Code recommended)
 
-## Running the Project
+## 🚀 Running the Project
 
 ```bash
 # Start the API
@@ -47,6 +47,6 @@ npm install
 npm run dev
 ```
 
-## Purpose
+## 🎯 Purpose
 
 This project provides a simple environment to strengthen your understanding of REST APIs in ASP.NET Core and modern frontend development. It focuses on clear route design, data validation, lightweight CRUD operations, and a responsive web client.
